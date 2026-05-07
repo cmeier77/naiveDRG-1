@@ -14,6 +14,12 @@
     id="toc-peer-review-supplementary-figure-2-workflow">Peer Review
     Supplementary Figure 2 workflow</a>
     -   <a href="#helpers-1" id="toc-helpers-1">Helpers</a>
+-   <a href="#data-preparation-1" id="toc-data-preparation-1">Data
+    preparation</a>
+-   <a href="#perform-deconvolution" id="toc-perform-deconvolution">Perform
+    deconvolution</a>
+-   <a href="#perform-dea" id="toc-perform-dea">Perform DEA</a>
+    -   <a href="#helpers-2" id="toc-helpers-2">Helpers</a>
 -   <a href="#scripts" id="toc-scripts">Scripts</a>
 -   <a href="#done" id="toc-done">Done!</a>
 
@@ -62,6 +68,11 @@ manner”](https://doi.org/10.1101/2025.04.07.646998)
 -   Running under: CentOS Linux 7 (Core)
 -   Matrix products: default
 -   BLAS/LAPACK: /usr/lib64/R/lib/libRblas.so
+
+**Peer Review Supplementary Figure 1 session info**:
+
+-   R version 4.5.0 (2019-04-26)
+-   Platform: x86_64-pc-linux-gnu
 
 **Peer Review Supplementary Figure 2 session info**:
 
@@ -155,6 +166,46 @@ functions that minimize repetition of code and are generally helpful.
 4.  Run `*.sh` scripts in the `bash` folder to execute analyses.
 
 ## Peer Review Supplementary Figure 2 workflow
+
+> PR_SFigure1 directory.
+
+### Helpers
+
+Notice the `0_helpers` folder. This directory contains R functions used
+in the workflow.
+
+## Data preparation
+
+1.  Navigate to `./1_deconv/0_bulk`. Run 1_bulk_drg_prep.R to prepare
+    the bulk data for deconvolution by removing novel genes (“MSTRG”)
+    and saving the data in order to input into Instaprism.
+2.  Nativate to `./1_deconv/1_singlecell`. Run `1_download_geo.sh` to
+    download the scRNA reference dataset from GEO accession GSE154659
+    and upzip the files.
+3.  Run `2_load_data.R` to save the unzipped files and associated
+    metadata for data wrangling.
+4.  Run `3_cleanData.sh` which calls Rscript `3_cleanData.R` to only
+    keep the control samples in all four raw count files downloaded.  
+5.  Run `4_combine_dfs.R` to combine seperate raw data counts together
+    into one.
+6.  Run `5_combineMeta.R` to combine the metadata files together.
+
+## Perform deconvolution
+
+1.  Navigate to `1_deconv/2_instaprism`.
+2.  Run `1_makeRef.R` to prepare the cell types and cell state
+    information for the deconvolution.
+3.  Run `2_runInstaprism.` to perform the deconvolution with Instaprism.
+4.  Navigate to `../../2_preppingData/`. Cluster the cell states
+    together in preparation for DEA with `clusterCells.R`.
+
+## Perform DEA
+
+1.  Navigate to `3_naiveDrg/3_deseqCandidate`.
+2.  Run `2_write_scripts.R` to write bash script for each cell type
+    analysis.
+3.  Navigate to `bash` folder and run `jobsToRun.sh` to execute
+    analyses.
 
 > PR_SFigure2 directory.
 

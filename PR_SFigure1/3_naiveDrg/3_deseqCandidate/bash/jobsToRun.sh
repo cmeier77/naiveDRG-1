@@ -1,0 +1,16 @@
+sbatch Atf3.2vs14.sh
+sbatch Cldn9.2vs14.sh
+sbatch Fibroblast.2vs14.sh
+sbatch Immune_Cell.2vs14.sh
+sbatch Mrgpra.2vs14.sh
+sbatch Mrgprd.2vs14.sh
+sbatch Neuron.2vs14.sh
+sbatch Nppb.2vs14.sh
+sbatch Red_blood_cell.2vs14.sh
+sbatch S100b.2vs14.sh
+sbatch Satellite_Cell.2vs14.sh
+sbatch Schwann_Cell.2vs14.sh
+sbatch Th_Fam19a4.2vs14.sh
+sbatch VECC.2vs14.sh
+sbatch VSMC.2vs14.sh
+sbatch Zcchc12.2vs14.sh
