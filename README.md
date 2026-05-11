@@ -10,17 +10,20 @@
     -   <a href="#from-candidates-identify-differentially-expressed-genes"
         id="toc-from-candidates-identify-differentially-expressed-genes">From
         candidates, identify differentially expressed genes</a>
+-   <a href="#peer-review-supplementary-figure-1-workflow"
+    id="toc-peer-review-supplementary-figure-1-workflow">Peer Review
+    Supplementary Figure 1 workflow</a>
+    -   <a href="#helpers-1" id="toc-helpers-1">Helpers</a>
+    -   <a href="#data-preparation-1" id="toc-data-preparation-1">Data
+    preparation</a>
+    -   <a href="#perform-deconvolution" id="toc-perform-deconvolution">Perform
+    deconvolution</a>
+    -   <a href="#perform-dea" id="toc-perform-dea">Perform DEA</a>
 -   <a href="#peer-review-supplementary-figure-2-workflow"
     id="toc-peer-review-supplementary-figure-2-workflow">Peer Review
-    Supplementary Figure 2 workflow</a>
-    -   <a href="#helpers-1" id="toc-helpers-1">Helpers</a>
--   <a href="#data-preparation-1" id="toc-data-preparation-1">Data
-    preparation</a>
--   <a href="#perform-deconvolution" id="toc-perform-deconvolution">Perform
-    deconvolution</a>
--   <a href="#perform-dea" id="toc-perform-dea">Perform DEA</a>
+    Supplementary Figure 2 workflow</a>    
     -   <a href="#helpers-2" id="toc-helpers-2">Helpers</a>
--   <a href="#scripts" id="toc-scripts">Scripts</a>
+    -   <a href="#scripts" id="toc-scripts">Scripts</a>
 -   <a href="#done" id="toc-done">Done!</a>
 
 ------------------------------------------------------------------------
@@ -165,7 +168,7 @@ functions that minimize repetition of code and are generally helpful.
         removed.
 4.  Run `*.sh` scripts in the `bash` folder to execute analyses.
 
-## Peer Review Supplementary Figure 2 workflow
+## Peer Review Supplementary Figure 1 workflow
 
 > PR_SFigure1 directory.
 
@@ -174,7 +177,7 @@ functions that minimize repetition of code and are generally helpful.
 Notice the `0_helpers` folder. This directory contains R functions used
 in the workflow.
 
-## Data preparation
+### Data preparation
 
 1.  Navigate to `./1_deconv/0_bulk`. Run 1_bulk_drg_prep.R to prepare
     the bulk data for deconvolution by removing novel genes (“MSTRG”)
@@ -190,7 +193,7 @@ in the workflow.
     into one.
 6.  Run `5_combineMeta.R` to combine the metadata files together.
 
-## Perform deconvolution
+### Perform deconvolution
 
 1.  Navigate to `1_deconv/2_instaprism`.
 2.  Run `1_makeRef.R` to prepare the cell types and cell state
@@ -199,7 +202,7 @@ in the workflow.
 4.  Navigate to `../../2_preppingData/`. Cluster the cell states
     together in preparation for DEA with `clusterCells.R`.
 
-## Perform DEA
+### Perform DEA
 
 1.  Navigate to `3_naiveDrg/3_deseqCandidate`.
 2.  Run `2_write_scripts.R` to write bash script for each cell type
@@ -207,6 +210,7 @@ in the workflow.
 3.  Navigate to `bash` folder and run `jobsToRun.sh` to execute
     analyses.
 
+## Peer Review Supplementary Figure 2 workflow
 > PR_SFigure2 directory.
 
 ### Helpers
@@ -215,7 +219,7 @@ Notice the `workflow/scripts/helpers` folder. This directory contains
 many R functions that minimize repetition of code and are generally
 helpful.
 
-## Scripts
+### Scripts
 
 Execute computational demanding scripts with bash scripts (`.sh`).
 
